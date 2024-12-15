@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cpuspike-app-deployment
+  labels:
+    app: cpuspike-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cpuspike-app
+  template:
+    metadata:
+      labels:
+        app: cpuspike-app
+    spec:
+      containers:
+      - name: cpuspike-app
+        image: your-docker-image:latest # Replace with your actual image
+        ports:
+        - containerPort: 8081
+        env:
+        - name: JAVA_OPTS
+          value: ""
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cpuspike-app-service
+  labels:
+    app: cpuspike-app
+spec:
+  type: LoadBalancer
+  selector:
+    app: cpuspike-app
+  ports:
+  - protocol: TCP
+    port: 8081
+    targetPort: 8081
