@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: cpuspike-app
-        image: sumanth17121988/cpuspikes:1
+        image: sumanth17121988/cpuspikes:latest
         ports:
         - containerPort: 8081
         env:
