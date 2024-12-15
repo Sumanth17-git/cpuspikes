@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: cpuspike-app
-        image: your-docker-image:latest # Replace with your actual image
+        image: sumanth17121988/cpuspikes:1
         ports:
         - containerPort: 8081
         env:
